@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: mergeready
+Version: 0.1.0
+Summary: Evidence-backed reports showing where pull requests lose time and what is slowing delivery.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# MergeReady
+
+Evidence-backed reports showing where pull requests lose time and what is slowing delivery.
+
+MergeReady helps teams understand where changes wait between pull request opening and production. It aims to identify measurable flow and coordination signals, link each finding to evidence, and suggest a practical next action.
+
+## First prototype
+
+The initial version will read GitHub pull request and CI information, calculate a small set of transparent delivery-flow metrics, and produce a concise report. It will be read-only: it will not post comments or change repository settings.
+
+## Development
+
+Create and activate a virtual environment, install the project with `python3 -m pip install -e .`, then run `mergeready --help`.
+
+## Status
+
+Early prototype, built for Fly.io Hacksgiving 2026.

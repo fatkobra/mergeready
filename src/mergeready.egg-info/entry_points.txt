@@ -1,0 +1,2 @@
+[console_scripts]
+mergeready = mergeready.cli:main
