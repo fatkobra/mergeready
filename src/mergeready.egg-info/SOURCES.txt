@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-src/mergeready/__init__.py
-src/mergeready/cli.py
-src/mergeready.egg-info/PKG-INFO
-src/mergeready.egg-info/SOURCES.txt
-src/mergeready.egg-info/dependency_links.txt
-src/mergeready.egg-info/entry_points.txt
-src/mergeready.egg-info/top_level.txt
