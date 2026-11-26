@@ -19,6 +19,11 @@ def get_json(path: str):
         },
     )
 
+    if base_url == "https://api.github.com":
+        token = os.environ.get("MERGEREADY_GITHUB_TOKEN")
+        if token:
+            request.add_header("Authorization", f"Bearer {token}")
+
     try:
         with urlopen(request, timeout=30) as response:
             return json.loads(response.read().decode("utf-8"))
@@ -40,4 +45,13 @@ def fetch_pull_requests(owner: str, repo: str, limit: int):
 
 
 def fetch_reviews(owner: str, repo: str, number: int):
-    return get_json(f"repos/{owner}/{repo}/pulls/{number}/reviews")
+    reviews = []
+    page = 1
+    while True:
+        batch = get_json(
+            f"repos/{owner}/{repo}/pulls/{number}/reviews?per_page=100&page={page}"
+        )
+        reviews.extend(batch)
+        if len(batch) < 100:
+            return reviews
+        page += 1
